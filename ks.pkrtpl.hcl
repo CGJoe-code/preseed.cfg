@@ -27,8 +27,8 @@ keyboard ${vm_guest_os_keyboard}
 ### --bootproto   method to obtain networking configuration for device (default dhcp)
 ### --noipv6      disable IPv6 on this device
 ###
-### network  --bootproto=static --ip=172.16.120.99 --netmask=255.255.255.0 --gateway=172.16.120.254 --nameserver=172.16.100.1,172.16.100.2 --hostname centos-linux-8
-network --bootproto=dhcp
+network  --bootproto=static --ip=172.16.120.99 --netmask=255.255.255.0 --gateway=172.16.120.254 --nameserver=172.16.100.1,172.16.100.2 --hostname centos-linux-8
+### network --bootproto=dhcp
 
 ### Lock the root account.
 rootpw --lock
