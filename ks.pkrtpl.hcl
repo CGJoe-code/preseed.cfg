@@ -6,11 +6,14 @@
 # CentOS Stream 8
 
 ### Installs from the first attached CD-ROM/DVD on the system.
-cdrom
+#cdrom
 
 ### Performs the kickstart installation in text mode.
 ### By default, kickstart installations are performed in graphical mode.
 text
+
+### Run the Setup Agent on first boot
+firstboot --enable
 
 ### Accepts the End User License Agreement.
 eula --agreed
