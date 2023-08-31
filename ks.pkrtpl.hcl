@@ -6,7 +6,7 @@
 # CentOS Stream 8
 
 ### Installs from the first attached CD-ROM/DVD on the system.
-#cdrom
+cdrom
 
 ### Performs the kickstart installation in text mode.
 ### By default, kickstart installations are performed in graphical mode.
@@ -30,29 +30,29 @@ keyboard ${vm_guest_os_keyboard}
 ### --bootproto   method to obtain networking configuration for device (default dhcp)
 ### --noipv6      disable IPv6 on this device
 ###
-network  --onboot --bootproto=static --ip=172.16.120.99 --netmask=255.255.255.0 --gateway=172.16.120.254 --nameserver=172.16.100.1,172.16.100.2 --hostname centos-linux-8
+network --bootproto=static --ip=172.16.120.99 --netmask=255.255.255.0 --gateway=172.16.120.254 --nameserver=172.16.100.1,172.16.100.2 --hostname example-centos-8
 ### network --bootproto=dhcp
 
 ### Lock the root account.
-rootpw --lock
+#rootpw --lock
 
 ### The selected profile will restrict root login.
 ### Add a user that can login and escalate privileges.
-user --name=${build_username} --iscrypted --password=${build_password_encrypted} --groups=wheel
+#user --name=${build_username} --iscrypted --password=${build_password_encrypted} --groups=wheel
 
 ### Configure firewall settings for the system.
 ### --enabled   reject incoming connections that are not in response to outbound requests
 ### --ssh               allow sshd service through the firewall
-firewall --enabled --ssh
+#firewall --enabled --ssh
 
 ### Sets up the authentication options for the system.
 ### The SSDD profile sets sha512 to hash passwords. Passwords are shadowed by default
 ### See the manual page for authselect-profile for a complete list of possible options.
-authselect select sssd
+#authselect select sssd
 
 ### Sets the state of SELinux on the installed system.
 ### Defaults to enforcing.
-selinux --enforcing
+#selinux --enforcing
 
 ### Sets the system time zone.
 timezone ${vm_guest_os_timezone}
@@ -93,7 +93,7 @@ logvol /var/log/audit --fstype xfs --name=lv_audit --vgname=sysvg --size=4096 --
 services --enabled=NetworkManager,sshd
 
 ### Do not configure X on the installed system.
-skipx
+#skipx
 
 ### Packages selection.
 %packages --ignoremissing --excludedocs
